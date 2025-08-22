@@ -1997,6 +1997,7 @@ odm/etc/vintf/manifest/manifest_oplus_fingerprint_aidl_v3.xml
 odm/lib64/libolc_vnd.so
 odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.olc2-V2-ndk.so
+odm/lib64/vendor.oplus.hardware.olc2-V3-ndk.so
 vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor
 
 # Gatekeeper
@@ -2410,6 +2411,7 @@ odm/etc/vintf/manifest/manifest_oplus_cwb_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_displaypanelfeature_aidl.xml
 odm/lib64/libdisplayaidlapis.so
 odm/lib64/libdpaservice.so
+odm/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so
 vendor/etc/2024-01-12_platform_RSA_license_a226ad89-a187-4b14-9447-d20bfe9dac1a.pfm
 vendor/etc/oem_51_prj_OppoLTM8650_1689712162019.pfm
 vendor/lib64/libcwb_qcom_aidl.so
@@ -2432,6 +2434,7 @@ odm/lib64/liburcccore.so
 odm/lib64/vendor.oplus.hardware.performance-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.performance-V2-ndk.so
 odm/lib64/vendor.oplus.hardware.performance-V3-ndk.so
+odm/lib64/vendor.oplus.hardware.performance-V4-ndk.so
 odm/lib64/vendor.oplus.hardware.urcc-V1-ndk.so;MODULE_SUFFIX=_odm 
 system_ext/lib64/vendor.oplus.hardware.urcc-V1-ndk.so
 system_ext/lib64/vendor.oplus.hardware.urcc-V1-ndk_platform.so
