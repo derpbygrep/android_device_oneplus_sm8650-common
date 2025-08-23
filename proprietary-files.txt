@@ -956,7 +956,7 @@ odm/lib64/libCOppLceTonemapAPI.so
 odm/lib64/libCS.so
 odm/lib64/libCaptureBokeh.so
 odm/lib64/libDeVIS.so
-odm/lib64/libEIS.so
+odm/lib64/libEIS.so;DISABLE_CHECKELF
 odm/lib64/libFDClite.so
 odm/lib64/libFaceBeautyCap.so
 odm/lib64/libFaceBeautyJni.so
@@ -966,7 +966,7 @@ odm/lib64/libFaceDistortionCorrection.so
 odm/lib64/libFilterWrapper.so
 odm/lib64/libGaiaClient_vnd.so
 odm/lib64/libHDRDetection.so
-odm/lib64/libHIS.so
+odm/lib64/libHIS.so;DISABLE_CHECKELF
 odm/lib64/libImageWarpMask.so;FIX_SONAME
 odm/lib64/libODNN.so
 odm/lib64/libOGLManager.so
@@ -1037,7 +1037,7 @@ odm/lib64/libarcsoft_qnnhtp.so
 odm/lib64/libarcsoft_scbokeh_video.so
 odm/lib64/libarcsoft_smart_denoise.so
 odm/lib64/libarcsoft_smart_denoise_v4.so
-odm/lib64/libarcsoft_turbo_fusion_raw_portrait_super_night.so
+odm/lib64/libarcsoft_turbo_fusion_raw_portrait_super_night.so;DISABLE_CHECKELF
 odm/lib64/libarcsoft_turbo_fusion_raw_super_night.so
 odm/lib64/libarcsoft_turbo_hdr_grf.so
 odm/lib64/libarcsoft_turbo_hdr_raw.so
