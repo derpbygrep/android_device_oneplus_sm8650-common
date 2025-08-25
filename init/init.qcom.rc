@@ -463,6 +463,32 @@ service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
     ioprio rt 4
     disabled
 
+service logger /system/bin/logcat -b all -D -f /data/boot_log.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on post-fs-data
+    start logger
+
+on early-init
+    start logger
+
+on boot
+    start logger
+
+service debug_dmesg /system/bin/sh -c "dmesg -w > /data/boot_dmesg.txt"
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on charger
+    start debug_dmesg
+
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
     mount cgroup none /dev/blkio blkio
