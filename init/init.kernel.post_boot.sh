@@ -72,6 +72,95 @@ function configure_zram_parameters() {
 	fi
 }
 
+#ifdef OPLUS_FEATURE_ZRAM_OPT
+function oplus_configure_zram_parameters() {
+    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+    MemTotal=${MemTotalStr:16:8}
+
+    echo lz4 > /sys/block/zram0/comp_algorithm
+    echo 160 > /sys/module/zram_opt/parameters/vm_swappiness
+    echo 60 > /sys/module/zram_opt/parameters/direct_vm_swappiness
+    echo 0 > /proc/sys/vm/page-cluster
+
+    if [ -f /sys/block/zram0/disksize ]; then
+        if [ -f /sys/block/zram0/use_dedup ]; then
+            echo 1 > /sys/block/zram0/use_dedup
+        fi
+
+        if [ $MemTotal -le 524288 ]; then
+            #config 384MB zramsize with ramsize 512MB
+            echo 402653184 > /sys/block/zram0/disksize
+        elif [ $MemTotal -le 1048576 ]; then
+            #config 768MB zramsize with ramsize 1GB
+            echo 805306368 > /sys/block/zram0/disksize
+        elif [ $MemTotal -le 2097152 ]; then
+            #config 1GB+256MB zramsize with ramsize 2GB
+            echo lz4 > /sys/block/zram0/comp_algorithm
+            echo 1342177280 > /sys/block/zram0/disksize
+        elif [ $MemTotal -le 3145728 ]; then
+            #config 1GB+512MB zramsize with ramsize 3GB
+            echo 1610612736 > /sys/block/zram0/disksize
+        elif [ $MemTotal -le 4194304 ]; then
+            #config 2GB+512MB zramsize with ramsize 4GB
+            echo 2684354560 > /sys/block/zram0/disksize
+        elif [ $MemTotal -le 6291456 ]; then
+            #config 3GB zramsize with ramsize 6GB
+            echo 3221225472 > /sys/block/zram0/disksize
+        else
+            #config 4GB zramsize with ramsize >=8GB
+            echo 4294967296 > /sys/block/zram0/disksize
+        fi
+        mkswap /dev/block/zram0
+        swapon /dev/block/zram0 -p 32758
+    fi
+}
+
+function oplus_configure_hybridswap() {
+	kernel_version=`uname -r`
+
+	if [[ "$kernel_version" == "6.1"* ]]; then
+		echo 160 > /sys/module/oplus_bsp_zram_opt/parameters/vm_swappiness
+	else
+		echo 160 > /sys/module/zram_opt/parameters/vm_swappiness
+	fi
+
+	echo 0 > /proc/sys/vm/page-cluster
+
+	# FIXME: set system memcg pata in init.kernel.post_boot-lahaina.sh temporary
+	echo 500 > /dev/memcg/system/memory.app_score
+	echo systemserver > /dev/memcg/system/memory.name
+}
+
+#/*Add swappiness tunning parameters*/
+function oplus_configure_tuning_swappiness() {
+	local MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+	local MemTotal=${MemTotalStr:16:8}
+	local para_path=/proc/sys/vm
+	local kernel_version=`uname -r`
+
+	if [[ "$kernel_version" == "6.1"* ]]; then
+		para_path=/sys/module/oplus_bsp_zram_opt/parameters
+	fi
+
+	if [ $MemTotal -le 6291456 ]; then
+		echo 0 > $para_path/vm_swappiness_threshold1
+		echo 0 > $para_path/swappiness_threshold1_size
+		echo 0 > $para_path/vm_swappiness_threshold2
+		echo 0 > $para_path/swappiness_threshold2_size
+	elif [ $MemTotal -le 8388608 ]; then
+		echo 70  > $para_path/vm_swappiness_threshold1
+		echo 2000 > $para_path/swappiness_threshold1_size
+		echo 90  > $para_path/vm_swappiness_threshold2
+		echo 1500 > $para_path/swappiness_threshold2_size
+	else
+		echo 70  > $para_path/vm_swappiness_threshold1
+		echo 4096 > $para_path/swappiness_threshold1_size
+		echo 90  > $para_path/vm_swappiness_threshold2
+		echo 2048 > $para_path/swappiness_threshold2_size
+	fi
+}
+#endif /*OPLUS_FEATURE_ZRAM_OPT*/
+
 verify_pasr_support()
 {
 	ddr_type=`od -An -tx /proc/device-tree/memory/ddr_device_type`
@@ -111,8 +200,16 @@ function configure_read_ahead_kb_values() {
 		echo $ra_kb > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
 	fi
 	for dm in $dmpts; do
-		if [ `cat $(dirname $dm)/../removable` -eq 0 ]; then
+		dm_dev=`echo $dm |cut -d/ -f4`
+		if [ "$dm_dev" = "" ]; then
+			is_erofs=""
+		else
+			is_erofs=`mount |grep erofs |grep "${dm_dev} "`
+		fi
+		if [ "$is_erofs" = "" ]; then
 			echo $ra_kb > $dm
+		else
+			echo 128 > $dm
 		fi
 	done
 }
@@ -137,7 +234,21 @@ function configure_memory_parameters() {
 	# Set allocstall_threshold to 0 for all targets.
 	#
 
-	configure_zram_parameters
+#ifdef OPLUS_FEATURE_ZRAM_OPT
+	# For vts test which has replace system.img
+	if [ -L "/product" ]; then
+		oplus_configure_zram_parameters
+	else
+		if [ -f /sys/block/zram0/hybridswap_enable ]; then
+			oplus_configure_hybridswap
+		else
+			oplus_configure_zram_parameters
+		fi
+	fi
+	oplus_configure_tuning_swappiness
+#else
+	# configure_zram_parameters
+#endif /*OPLUS_FEATURE_ZRAM_OPT*/
 	configure_read_ahead_kb_values
 	echo 100 > /proc/sys/vm/swappiness
 
@@ -180,6 +291,11 @@ function configure_memory_parameters() {
 	else
 		echo 4096 > /proc/sys/vm/min_free_kbytes
 	fi
+
+	# configure boost pool
+	if [ $RamSizeGB -ge 10 ]; then
+		echo 128000 > /proc/boost_pool/camera_pages
+        fi
 
 	#Set per-app max kgsl reclaim limit and per shrinker call limit
 	if [ -f /sys/class/kgsl/kgsl/page_reclaim_per_call ]; then
