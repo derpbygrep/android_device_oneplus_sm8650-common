@@ -2233,13 +2233,13 @@ vendor/bin/init.kernel.post_boot-memory.sh
 vendor/bin/init.kernel.post_boot-pineapple.sh
 vendor/bin/init.kernel.post_boot-pineapple_2_3_1_1.sh
 vendor/bin/init.kernel.post_boot-pineapple_2_3_2_0.sh
-vendor/bin/init.qcom.class_core.sh
-vendor/etc/init/hw/init.qti.kernel.rc
 vendor/bin/init.kernel.post_boot-pineapple_default_2_3_2_1.sh
 vendor/bin/init.kernel.post_boot.sh
+vendor/bin/init.qcom.class_core.sh
 vendor/bin/init.qti.kernel.sh
 vendor/bin/system_dlkm_modprobe.sh
 vendor/bin/vendor_modprobe.sh
+vendor/etc/init/hw/init.qti.kernel.rc
 
 # Keymaster
 vendor/bin/hw/android.hardware.security.keymint-service-qti
@@ -2254,8 +2254,8 @@ vendor/lib64/libspcom.so
 
 # License
 vendor/etc/SNS_platform_license.pfm
-vendor/etc/SNS_platform_license_for_SM8635.pfm
 vendor/etc/SNS_platform_license_for_SM7675.pfm
+vendor/etc/SNS_platform_license_for_SM8635.pfm
 
 # Limits
 vendor/bin/hw/vendor.qti.hardware.limits@1.2-service
@@ -2396,8 +2396,8 @@ odm/etc/vintf/manifest/manifest_oplus_cwb_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_displaypanelfeature_aidl.xml
 odm/lib64/libdisplayaidlapis.so
 odm/lib64/libdpaservice.so
-vendor/etc/2024-01-12_platform_RSA_license_a226ad89-a187-4b14-9447-d20bfe9dac1a.pfm
 odm/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so;MODULE_SUFFIX=_odm
+vendor/etc/2024-01-12_platform_RSA_license_a226ad89-a187-4b14-9447-d20bfe9dac1a.pfm
 vendor/etc/oem_51_prj_OppoLTM8650_1689712162019.pfm
 vendor/lib64/libcwb_qcom_aidl.so
 vendor/lib64/vendor.oplus.hardware.cwb-V1-ndk.so
