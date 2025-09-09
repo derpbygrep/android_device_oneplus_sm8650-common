@@ -45,6 +45,9 @@ on property:ro.boot.prjname=*
     # Display
     setprop ro.separate.soft ${ro.boot.prjname}
 
+on property:persist.vendor.fingerprint.optical.sensorlocation=736::2670
+    setprop persist.vendor.fingerprint.optical.sensorlocation 636::2565
+
 on property:sys.boot_completed=1
     # Network
     copy /vendor/etc/O_STX_platform_license.pfm /mnt/vendor/persist/data/pfm/licenses/O_STX_platform_license.pfm
