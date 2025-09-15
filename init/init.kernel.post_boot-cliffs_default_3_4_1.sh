@@ -31,7 +31,6 @@
 #=============================================================================
 
 rev=`cat /sys/devices/soc0/revision`
-prjname=`getprop ro.boot.prjname`
 
 # Configure RT parameters:
 # Long running RT task detection is confined to consolidated builds.
@@ -87,11 +86,11 @@ if [ -d /proc/sys/walt ]; then
 	# Setting b.L scheduler parameters
 	echo 71 95 > /proc/sys/walt/sched_upmigrate
 	echo 65 85 > /proc/sys/walt/sched_downmigrate
-	echo 85 > /proc/sys/walt/sched_group_downmigrate #stock=380
-	echo 100 > /proc/sys/walt/sched_group_upmigrate #stock=400
+	echo 85 > /proc/sys/walt/sched_group_downmigrate
+	echo 100 > /proc/sys/walt/sched_group_upmigrate
 	echo 1 > /proc/sys/walt/sched_walt_rotate_big_tasks
 	echo 51 > /proc/sys/walt/sched_min_task_util_for_boost
-	echo 35 > /proc/sys/walt/sched_min_task_util_for_colocation #stock=1000
+	echo 35 > /proc/sys/walt/sched_min_task_util_for_colocation
 	echo 20000000 > /proc/sys/walt/sched_coloc_downmigrate_ns
 	echo 0 > /proc/sys/walt/sched_coloc_busy_hysteresis_enable_cpus
 	echo 8500000 8500000 8500000 5000000 5000000 5000000 5000000 2000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
@@ -123,15 +122,6 @@ if [ -d /proc/sys/walt ]; then
 	echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
 	echo 2147483647 2611200 2803200 > /proc/sys/walt/sched_fmax_cap
-
-	case "$prjname" in
-		"23622" | "23609" | "24687" | "23718")
-			# configure maximum frequency of silver cluster when load is not detected and ensure that
-			# other clusters' fmax remains uncapped by setting the frequency to S32_MAX
-			echo 1708800 2707200 2147483647 > /proc/sys/walt/sched_fmax_cap
-			;;
-		*)
-	esac
 
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/walt/sched_boost
