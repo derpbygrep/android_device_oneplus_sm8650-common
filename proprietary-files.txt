@@ -1035,14 +1035,6 @@ odm/lib64/libosenseaidlhalclient.so
 odm/lib64/libosensenativeproxy_client.so
 vendor/lib64/libosensenativeproxy_client.so;MODULE_SUFFIX=_vendor
 
-# OPLUS Charger
-odm/bin/hw/vendor.oplus.hardware.charger-V6-service
-odm/bin/hw/wlschgd
-odm/etc/init/vendor.oplus.hardware.charger-V6-service.rc
-odm/etc/vintf/manifest/manifest_oplus_charger_aidl.xml
-odm/etc/charge.cfg
-odm/lib64/libGaiaClient_vnd.so
-
 # OPLUS Display
 odm/bin/hw/vendor.oplus.hardware.displaypanelfeature-service
 odm/bin/cwb_utils_aidl
