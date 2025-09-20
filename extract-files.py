@@ -20,6 +20,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/oneplus/sm8650-common',
+    'vendor/oneplus/lexus',
     'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
     'hardware/oplus',
