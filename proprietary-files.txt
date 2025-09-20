@@ -334,29 +334,29 @@ vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libhdrvivid.so
 
-# Display (HWC)
-vendor/bin/hw/vendor.qti.hardware.display.composer-service;DISABLE_DEPS;REQUIRED=vendor.qti.hardware.display.composer-service.rc,vendor.qti.hardware.display.composer-service.xml
-vendor/bin/qdcmss
-vendor/etc/init/qdcmss.rc
-vendor/etc/snapdragon_color_libs_config.xml
-vendor/lib64/libdisplayconfig.qti.so
-vendor/lib64/libdpp_manager.so
-vendor/lib64/libdpps.so
-vendor/lib64/libgame_enhance.so
-vendor/lib64/libgralloccore.so
-vendor/lib64/libhistogram.so
-vendor/lib64/libhwcsensor.so
-vendor/lib64/libmemutils.so
-vendor/lib64/libqdcm-algo.so
-vendor/lib64/libqdcm-json-mode-parser.so
-vendor/lib64/libqdcm-mode-parser.so
-vendor/lib64/libqdutils.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmdal.so
-vendor/lib64/libsdmutils.so
-vendor/lib64/libsnapdragoncolor-manager.so
-vendor/lib64/libsnapdragoncolor-qdcm.so
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+# Display (HWC) - from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
+vendor/bin/hw/vendor.qti.hardware.display.composer-service;DISABLE_DEPS;REQUIRED=vendor.qti.hardware.display.composer-service.rc,vendor.qti.hardware.display.composer-service.xml|fca2f5a5ab2036c21a1e1abe73f9cf898af5dc52
+vendor/bin/qdcmss|59c0151b7a92b2e560d4a43fbcf676243300e968
+vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
+vendor/etc/snapdragon_color_libs_config.xml|f1d2ec2097acd02087e040d66e9a085dab016d10
+vendor/lib64/libdisplayconfig.qti.so|729d83b3fdffc72a86aa7f46e2476a333b1ba790
+vendor/lib64/libdpp_manager.so|a0af4eb0d9a3ab3fb0b066b90d0766091c0d39b4
+vendor/lib64/libdpps.so|93d09ed2e95060c1ee8723f42e0c7cb929ad473b
+vendor/lib64/libgame_enhance.so|0354213147c3b2e624ccf8a5943fbae9dd97f2af
+vendor/lib64/libgralloccore.so|f077a66d08b631eec0df15381de7c4be9f576f81
+vendor/lib64/libhistogram.so|94f6d020f42a46f75d3b8a76f651cb1900fa3d17
+vendor/lib64/libhwcsensor.so|0cba4be8b9d6d4228798693102f3421fd2a0589d
+vendor/lib64/libmemutils.so|dcd7b4fb359131fed3998deb24b87e92b6342a55
+vendor/lib64/libqdcm-algo.so|f47bb1e572b138f080c830a6f75771fc2f5cec27
+vendor/lib64/libqdcm-json-mode-parser.so|af3da533ed98c3c725e1e3bcf8a6e111bf2ca2b2
+vendor/lib64/libqdcm-mode-parser.so|db42dab29818e4fd1b418082f9b1fb162c496fcd
+vendor/lib64/libqdutils.so|34053fa3380f0533b952e67d674fd06e816eae69
+vendor/lib64/libsdmcore.so|85b2d5a99d8e9322aa812bf26a7521b975812f1e
+vendor/lib64/libsdmdal.so|df6f390b001e65bfdb58ce091ac18fcbc04d8356
+vendor/lib64/libsdmutils.so|243a6baf08bf4cdccc8baa9ed87fb35a64e4e373
+vendor/lib64/libsnapdragoncolor-manager.so|bce874d940abc1154e2073ac04e2894f02eba07f
+vendor/lib64/libsnapdragoncolor-qdcm.so|72c2ace3ceaf25a4e3c4fa2a6f4297f1f90d5bf0
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|1198eb4b258fca84956e9ccfc971c33aff206b40
 
 # Display (Pixelworks)
 odm/bin/hw/vendor.pixelworks.hardware.feature-service
