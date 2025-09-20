@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from OnePlus 12 (CPH2581_15.0.0.850(EX01)).
+## are from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
 
 # Current blobs with ELF checks disabled:
 # audio.primary.pineapple depends on liblx-osal and vendor.qti.hardware.AGMIPC@1.0-impl, which are gnu makefile targets
@@ -268,12 +268,6 @@ vendor/etc/init/ssgtzd.rc
 vendor/etc/seccomp_policy/qwesd@2.0.policy
 vendor/etc/ssg/tz_whitelist.json
 
-# Context Hub
-odm/etc/init/android.hardware.contexthub-service.qmi.rc
-odm/etc/vintf/manifest/android.hardware.contexthub-service.qmi.xml
-vendor/bin/hw/android.hardware.contexthub-service.qmi
-vendor/etc/chre/preloaded_nanoapps.json
-
 # Data
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
@@ -334,70 +328,48 @@ vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libhdrvivid.so
 
-# Display (HWC) - from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
-vendor/bin/hw/vendor.qti.hardware.display.composer-service;DISABLE_DEPS;REQUIRED=vendor.qti.hardware.display.composer-service.rc,vendor.qti.hardware.display.composer-service.xml|fca2f5a5ab2036c21a1e1abe73f9cf898af5dc52
-vendor/bin/qdcmss|59c0151b7a92b2e560d4a43fbcf676243300e968
-vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
-vendor/etc/snapdragon_color_libs_config.xml|f1d2ec2097acd02087e040d66e9a085dab016d10
-vendor/lib64/libdisplayconfig.qti.so|729d83b3fdffc72a86aa7f46e2476a333b1ba790
-vendor/lib64/libdpp_manager.so|a0af4eb0d9a3ab3fb0b066b90d0766091c0d39b4
-vendor/lib64/libdpps.so|93d09ed2e95060c1ee8723f42e0c7cb929ad473b
-vendor/lib64/libgame_enhance.so|0354213147c3b2e624ccf8a5943fbae9dd97f2af
-vendor/lib64/libgralloccore.so|f077a66d08b631eec0df15381de7c4be9f576f81
-vendor/lib64/libhistogram.so|94f6d020f42a46f75d3b8a76f651cb1900fa3d17
-vendor/lib64/libhwcsensor.so|0cba4be8b9d6d4228798693102f3421fd2a0589d
-vendor/lib64/libmemutils.so|dcd7b4fb359131fed3998deb24b87e92b6342a55
-vendor/lib64/libqdcm-algo.so|f47bb1e572b138f080c830a6f75771fc2f5cec27
-vendor/lib64/libqdcm-json-mode-parser.so|af3da533ed98c3c725e1e3bcf8a6e111bf2ca2b2
-vendor/lib64/libqdcm-mode-parser.so|db42dab29818e4fd1b418082f9b1fb162c496fcd
-vendor/lib64/libqdutils.so|34053fa3380f0533b952e67d674fd06e816eae69
-vendor/lib64/libsdmcore.so|85b2d5a99d8e9322aa812bf26a7521b975812f1e
-vendor/lib64/libsdmdal.so|df6f390b001e65bfdb58ce091ac18fcbc04d8356
-vendor/lib64/libsdmutils.so|243a6baf08bf4cdccc8baa9ed87fb35a64e4e373
-vendor/lib64/libsnapdragoncolor-manager.so|bce874d940abc1154e2073ac04e2894f02eba07f
-vendor/lib64/libsnapdragoncolor-qdcm.so|72c2ace3ceaf25a4e3c4fa2a6f4297f1f90d5bf0
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|1198eb4b258fca84956e9ccfc971c33aff206b40
+# Display (HWC)
+vendor/bin/hw/vendor.qti.hardware.display.composer-service;DISABLE_DEPS;REQUIRED=vendor.qti.hardware.display.composer-service.rc,vendor.qti.hardware.display.composer-service.xml
+vendor/bin/qdcmss
+vendor/bin/dppdaemon
+vendor/lib64/libdisplaydebug.so
+vendor/etc/init/qdcmss.rc
+vendor/etc/snapdragon_color_libs_config.xml
+vendor/lib64/libdisplayconfig.qti.so
+vendor/lib64/libdpp_manager.so
+vendor/lib64/libdpps.so
+vendor/lib64/libgame_enhance.so
+vendor/lib64/libgralloccore.so
+vendor/lib64/libhistogram.so
+vendor/lib64/libhwcsensor.so
+vendor/lib64/libmemutils.so
+vendor/lib64/libqdcm-algo.so
+vendor/lib64/libqdcm-json-mode-parser.so
+vendor/lib64/libqdcm-mode-parser.so
+vendor/lib64/libqdutils.so
+vendor/lib64/libsdmcore.so
+vendor/lib64/libsdmdal.so
+vendor/lib64/libsdmutils.so
+vendor/lib64/libsnapdragoncolor-manager.so
+vendor/lib64/libsnapdragoncolor-qdcm.so
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # Display (Pixelworks)
-odm/bin/hw/vendor.pixelworks.hardware.feature-service
-odm/bin/irisConfig
-odm/etc/init/vendor.pixelworks.hardware.feature-service-lazy.rc
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.display-service.xml
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.feature-service.xml
-odm/etc/Custom_LUT_hlg.cube
-odm/etc/hdr3dlut_pq_qcom_grid_out_rgb.cube
-odm/lib64/libpwirisIoctlWrapper.so
-odm/lib64/libpwirisPCS.so
-odm/lib64/libpwiriscalibrate.so
 odm/lib64/libpwirisfeature.so
-odm/lib64/libpwirisfeaturehal.so
 odm/lib64/libpwirishalwrapper.so
-odm/lib64/libpwirispq.so
-odm/lib64/libpwirisservicei7.so
-odm/lib64/libpwirisservicei7p.so
-odm/lib64/libpwirisservicesi.so
-odm/lib64/libpwirissoft.so
-odm/lib64/libpwsoftirisPCS.so
-odm/lib64/libsnapdragoncolor-pxlw.so
-odm/lib64/vendor.pixelworks.hardware.display-V2-ndk.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-i7.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-i7p.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-si.so
-odm/lib64/vendor.pixelworks.hardware.display-translate-V2-ndk.so
 odm/lib64/vendor.pixelworks.hardware.display@1.0.so
 odm/lib64/vendor.pixelworks.hardware.display@1.1.so
 odm/lib64/vendor.pixelworks.hardware.display@1.2.so
-odm/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so
 odm/lib64/vendor.pixelworks.hardware.feature@1.0.so
 odm/lib64/vendor.pixelworks.hardware.feature@1.1.so
 vendor/lib64/libpwirisfeature.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libpwirishal.so
 vendor/lib64/libpwirishalwrapper.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.display-V2-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.display-V2-ndk.so
 vendor/lib64/vendor.pixelworks.hardware.display@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.display@1.1.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.display@1.2.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so
 vendor/lib64/vendor.pixelworks.hardware.feature@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.feature@1.1.so;MODULE_SUFFIX=_vendor
 
@@ -849,10 +821,8 @@ vendor/lib64/vendor.qti.hardware.limits@1.2.so
 odm/etc/media_profiles_V1_0.xml
 odm/lib64/libdolbydecoderprocessor.so
 odm/lib64/libdolbyeglcore.so
-odm/lib64/libdolbyencoderprocessor.so
 odm/lib64/libdolbyottcameracontrol.so
 odm/lib64/libqcodec2_dolbydecoderfilter.so
-odm/lib64/libqcodec2_dolbyencoderfilter.so
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 vendor/bin/hw/qconfigservice
@@ -938,34 +908,26 @@ vendor/lib64/MLPD_5.pickle
 vendor/etc/public.libraries.txt
 
 # Neural networks
-odm/lib64/aiboost/libQnnHtp.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpPrepare.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpV75Stub.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnSystem.so;MODULE_SUFFIX=.aiboost
 odm/lib64/libQnnCpu.so
 odm/lib64/libQnnGpu.so
 odm/lib64/libQnnHtp.so
 odm/lib64/libQnnHtpPrepare.so
-odm/lib64/libQnnHtpV75CalculatorStub.so
-odm/lib64/libQnnHtpV75Stub.so
+odm/lib64/libQnnHtpV73CalculatorStub.so
+odm/lib64/libQnnHtpV73Stub.so
 odm/lib64/libQnnSaver.so
 odm/lib64/libQnnSystem.so
 odm/lib64/libaiboost.so
 odm/lib64/libaiboost_qnn_external_delegate.so;FIX_SONAME
 odm/lib64/libaiboost_qnn_external_delegate_te.so;FIX_SONAME
-odm/lib64/libaiboost_qnn_sr.so
-odm/lib64/libaiboost_sr.so
 odm/lib64/libaiboost_te.so;FIX_SONAME
-odm/lib64/libaiboost_ubwc.so
-odm/lib64/libhta_hexagon_runtime_snpe.so
 
-# OPLUS Log Core - from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
-odm/bin/oldc_vnd|e9a9eb4c1cb577d0690370365369cdcd4f1ba2d4
-odm/lib64/libolc_vnd.so|a2b740c9a48d53b3ec522e59e2ac1ef9959b3034
-odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so|56398e98d60dd800e30e70812f9941d8a56576ad
-odm/lib64/vendor.oplus.hardware.olc2-V2-ndk.so|b6698600bf788c1a1d5e201ecd6cd27d29df8b52
-odm/lib64/vendor.oplus.hardware.olc2-V3-ndk.so|482008262a48a5c825629fbcd47d02757c63c1ec
-vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor|a2b740c9a48d53b3ec522e59e2ac1ef9959b3034
+# OPLUS Log Core
+odm/bin/oldc_vnd
+odm/lib64/libolc_vnd.so
+odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so
+odm/lib64/vendor.oplus.hardware.olc2-V2-ndk.so
+odm/lib64/vendor.oplus.hardware.olc2-V3-ndk.so
+vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor
 
 # OSENSE
 odm/lib64/libosenseaidlhalclient.so
@@ -976,15 +938,10 @@ vendor/lib64/libosensenativeproxy_client.so;MODULE_SUFFIX=_vendor
 odm/bin/hw/vendor.oplus.hardware.displaypanelfeature-service
 odm/bin/cwb_utils_aidl
 odm/etc/init/vendor.oplus.hardware.displaypanelfeature-service.rc
-odm/etc/vintf/manifest/manifest_displaycolorfeature_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_cwb_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_displaypanelfeature_aidl.xml
-odm/etc/displaycolorfeaturecfg.xml
 odm/lib64/libdisplayaidlapis.so
-odm/lib64/libdisplaycolorfeature.so
-odm/lib64/libdisplayfossfeature_nature.so
 odm/lib64/libdpaservice.so
-odm/lib64/vendor.oplus.hardware.displaycolorfeature-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so;MODULE_SUFFIX=_odm
 vendor/etc/2024-01-12_platform_RSA_license_a226ad89-a187-4b14-9447-d20bfe9dac1a.pfm
 vendor/etc/oem_51_prj_OppoLTM8650_1689712162019.pfm
@@ -998,12 +955,11 @@ vendor/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so;MODULE_SUFFIX=_
 odm/etc/uah/uahconfig.pb
 odm/lib64/liboplus-uah-client.so
 odm/lib64/libuahcore.so
+odm/lib64/vendor.oplus.hardware.urcc-V1-ndk.so
 
 # OPLUS Project
-odm/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service
-odm/etc/init/vendor.oplus.hardware.stability.oplus_project-V1-service.rc
-odm/etc/vintf/manifest/manifest_oplus_stability_project_aidl.xml
 odm/lib64/vendor.oplus.hardware.stability.oplus_project-V2-ndk.so
+vendor/apex/vendor.oplus.hardware.stability.aidl.apex
 vendor/lib64/vendor.oplus.hardware.stability.oplus_project-V1-ndk.so
 
 # PD
@@ -1271,7 +1227,8 @@ odm/etc/init/commcenterd.rc
 odm/etc/init/subsys_daemon.rc
 odm/etc/vintf/manifest/device_manifest_communication_center_aidl.xml
 odm/etc/QtiFtmPublicKey.pem
-odm/etc/oem_stx_platform_license.pfm
+vendor/etc/SNS_platform_license.pfm
+vendor/etc/SNS_platform_license_for_SM8635.pfm
 odm/etc/plugin_config.xml
 odm/lib64/lib-virtual-modem-protos.so
 odm/lib64/libcommcenterfw.so
@@ -1291,8 +1248,8 @@ odm/lib64/libsubsys-utils.so
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so
 odm/lib64/vendor.oplus.hardware.communicationcenter-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.communicationcenter-V2-ndk.so
-odm/lib64/vendor.oplus.hardware.subsys-V3-ndk.so
-odm/lib64/vendor.oplus.hardware.subsys_radio-V4-ndk.so
+odm/lib64/vendor.oplus.hardware.subsys-V4-ndk.so
+odm/lib64/vendor.oplus.hardware.subsys_radio-V7-ndk.so
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml
@@ -1509,10 +1466,6 @@ vendor/lib64/libnative-api.so
 vendor/lib64/libqcbor.so
 
 # Secure element
-odm/bin/hw/android.hardware.secure_element-service.qti
-odm/etc/init/android.hardware.secure_element-service.qti.rc
-odm/etc/vintf/manifest/secure_element_omapi_service.xml:vendor/etc/vintf/manifest/secure_element-service-omapi.xml
-vendor/etc/vintf/manifest/android.hardware.secure_element.xml
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPQeSE.so
 vendor/lib64/libesesbprovision.so
@@ -1726,12 +1679,12 @@ vendor/lib64/libsi.so
 vendor/lib64/libtaautoload.so
 vendor/lib64/libtrustedapploader.so
 
-# Touch - from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
-odm/bin/hw/vendor-oplus-hardware-touch-V2-service|d1f5677a3574575ba032335e4ad83ed5c9d5f88b
-odm/bin/touchDaemon|0f6fb18dfcd7e845c0ba7c1c89d53fe16553eb28
-odm/etc/init/init.touchDaemon.rc|ddee903c9d324c0a74cbde2b1a669c1d715a8ea2
-odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc|4f5aeae41c029835e747efa365f65466ed53e595
-odm/etc/vintf/manifest/manifest_touch_aidl.xml|533fa17a03339bb0ddb42029e20fd9b20e530101
+# Touch
+odm/bin/hw/vendor-oplus-hardware-touch-V2-service
+odm/bin/touchDaemon
+odm/etc/init/init.touchDaemon.rc
+odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc
+odm/etc/vintf/manifest/manifest_touch_aidl.xml
 
 # Video
 vendor/lib64/libstreamparser.so

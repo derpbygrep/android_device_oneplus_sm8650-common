@@ -20,7 +20,6 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/oneplus/sm8650-common',
-    'vendor/oneplus/lexus',
     'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
     'hardware/oplus',
@@ -55,8 +54,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.pixelworks.hardware.display@1.0',
         'vendor.pixelworks.hardware.display@1.1',
         'vendor.pixelworks.hardware.display@1.2',
-        'vendor.pixelworks.hardware.display-V2-ndk',
-        'vendor.pixelworks.hardware.feature-V1-ndk',
         'vendor.pixelworks.hardware.feature@1.0',
         'vendor.pixelworks.hardware.feature@1.1',
         'vendor.qti.ImsRtpService-V1-ndk',
