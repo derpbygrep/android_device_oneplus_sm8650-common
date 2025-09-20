@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from OnePlus 12 (CPH2581_15.0.0.850(EX01)).
+## are from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
 
 # Current blobs with ELF checks disabled:
 # audio.primary.pineapple depends on liblx-osal and vendor.qti.hardware.AGMIPC@1.0-impl, which are gnu makefile targets
@@ -268,12 +268,6 @@ vendor/etc/init/ssgtzd.rc
 vendor/etc/seccomp_policy/qwesd@2.0.policy
 vendor/etc/ssg/tz_whitelist.json
 
-# Context Hub
-odm/etc/init/android.hardware.contexthub-service.qmi.rc
-odm/etc/vintf/manifest/android.hardware.contexthub-service.qmi.xml
-vendor/bin/hw/android.hardware.contexthub-service.qmi
-vendor/etc/chre/preloaded_nanoapps.json
-
 # Data
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
@@ -359,45 +353,21 @@ vendor/lib64/libsnapdragoncolor-qdcm.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # Display (Pixelworks)
-odm/bin/hw/vendor.pixelworks.hardware.feature-service
-odm/bin/irisConfig
-odm/etc/init/vendor.pixelworks.hardware.feature-service-lazy.rc
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.display-service.xml
-odm/etc/vintf/manifest/vendor.pixelworks.hardware.feature-service.xml
-odm/etc/Custom_LUT_hlg.cube
-odm/etc/hdr3dlut_pq_qcom_grid_out_rgb.cube
-odm/lib64/libpwirisIoctlWrapper.so
-odm/lib64/libpwirisPCS.so
-odm/lib64/libpwiriscalibrate.so
 odm/lib64/libpwirisfeature.so
-odm/lib64/libpwirisfeaturehal.so
 odm/lib64/libpwirishalwrapper.so
-odm/lib64/libpwirispq.so
-odm/lib64/libpwirisservicei7.so
-odm/lib64/libpwirisservicei7p.so
-odm/lib64/libpwirisservicesi.so
-odm/lib64/libpwirissoft.so
-odm/lib64/libpwsoftirisPCS.so
-odm/lib64/libsnapdragoncolor-pxlw.so
-odm/lib64/vendor.pixelworks.hardware.display-V2-ndk.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-i7.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-i7p.so
-odm/lib64/vendor.pixelworks.hardware.display-impl-si.so
-odm/lib64/vendor.pixelworks.hardware.display-translate-V2-ndk.so
 odm/lib64/vendor.pixelworks.hardware.display@1.0.so
 odm/lib64/vendor.pixelworks.hardware.display@1.1.so
 odm/lib64/vendor.pixelworks.hardware.display@1.2.so
-odm/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so
 odm/lib64/vendor.pixelworks.hardware.feature@1.0.so
 odm/lib64/vendor.pixelworks.hardware.feature@1.1.so
 vendor/lib64/libpwirisfeature.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libpwirishal.so
 vendor/lib64/libpwirishalwrapper.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.display-V2-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.display-V2-ndk.so
 vendor/lib64/vendor.pixelworks.hardware.display@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.display@1.1.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.display@1.2.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.pixelworks.hardware.feature-V1-ndk.so
 vendor/lib64/vendor.pixelworks.hardware.feature@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.pixelworks.hardware.feature@1.1.so;MODULE_SUFFIX=_vendor
 
@@ -849,10 +819,8 @@ vendor/lib64/vendor.qti.hardware.limits@1.2.so
 odm/etc/media_profiles_V1_0.xml
 odm/lib64/libdolbydecoderprocessor.so
 odm/lib64/libdolbyeglcore.so
-odm/lib64/libdolbyencoderprocessor.so
 odm/lib64/libdolbyottcameracontrol.so
 odm/lib64/libqcodec2_dolbydecoderfilter.so
-odm/lib64/libqcodec2_dolbyencoderfilter.so
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 vendor/bin/hw/qconfigservice
@@ -938,34 +906,26 @@ vendor/lib64/MLPD_5.pickle
 vendor/etc/public.libraries.txt
 
 # Neural networks
-odm/lib64/aiboost/libQnnHtp.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpPrepare.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnHtpV75Stub.so;MODULE_SUFFIX=.aiboost
-odm/lib64/aiboost/libQnnSystem.so;MODULE_SUFFIX=.aiboost
 odm/lib64/libQnnCpu.so
 odm/lib64/libQnnGpu.so
 odm/lib64/libQnnHtp.so
 odm/lib64/libQnnHtpPrepare.so
-odm/lib64/libQnnHtpV75CalculatorStub.so
-odm/lib64/libQnnHtpV75Stub.so
+odm/lib64/libQnnHtpV73CalculatorStub.so
+odm/lib64/libQnnHtpV73Stub.so
 odm/lib64/libQnnSaver.so
 odm/lib64/libQnnSystem.so
 odm/lib64/libaiboost.so
 odm/lib64/libaiboost_qnn_external_delegate.so;FIX_SONAME
 odm/lib64/libaiboost_qnn_external_delegate_te.so;FIX_SONAME
-odm/lib64/libaiboost_qnn_sr.so
-odm/lib64/libaiboost_sr.so
 odm/lib64/libaiboost_te.so;FIX_SONAME
-odm/lib64/libaiboost_ubwc.so
-odm/lib64/libhta_hexagon_runtime_snpe.so
 
-# OPLUS Log Core - from OnePlus Nord 5 (CPH2709_15.0.2.501(EX01))
-odm/bin/oldc_vnd|e9a9eb4c1cb577d0690370365369cdcd4f1ba2d4
-odm/lib64/libolc_vnd.so|a2b740c9a48d53b3ec522e59e2ac1ef9959b3034
-odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so|56398e98d60dd800e30e70812f9941d8a56576ad
-odm/lib64/vendor.oplus.hardware.olc2-V2-ndk.so|b6698600bf788c1a1d5e201ecd6cd27d29df8b52
-odm/lib64/vendor.oplus.hardware.olc2-V3-ndk.so|482008262a48a5c825629fbcd47d02757c63c1ec
-vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor|a2b740c9a48d53b3ec522e59e2ac1ef9959b3034
+# OPLUS Log Core
+odm/bin/oldc_vnd
+odm/lib64/libolc_vnd.so
+odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so
+odm/lib64/vendor.oplus.hardware.olc2-V2-ndk.so
+odm/lib64/vendor.oplus.hardware.olc2-V3-ndk.so
+vendor/lib64/libolc_vnd.so;MODULE_SUFFIX=_vendor
 
 # OSENSE
 odm/lib64/libosenseaidlhalclient.so
@@ -976,15 +936,10 @@ vendor/lib64/libosensenativeproxy_client.so;MODULE_SUFFIX=_vendor
 odm/bin/hw/vendor.oplus.hardware.displaypanelfeature-service
 odm/bin/cwb_utils_aidl
 odm/etc/init/vendor.oplus.hardware.displaypanelfeature-service.rc
-odm/etc/vintf/manifest/manifest_displaycolorfeature_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_cwb_aidl.xml
 odm/etc/vintf/manifest/manifest_oplus_displaypanelfeature_aidl.xml
-odm/etc/displaycolorfeaturecfg.xml
 odm/lib64/libdisplayaidlapis.so
-odm/lib64/libdisplaycolorfeature.so
-odm/lib64/libdisplayfossfeature_nature.so
 odm/lib64/libdpaservice.so
-odm/lib64/vendor.oplus.hardware.displaycolorfeature-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so;MODULE_SUFFIX=_odm
 vendor/etc/2024-01-12_platform_RSA_license_a226ad89-a187-4b14-9447-d20bfe9dac1a.pfm
 vendor/etc/oem_51_prj_OppoLTM8650_1689712162019.pfm
@@ -1000,10 +955,8 @@ odm/lib64/liboplus-uah-client.so
 odm/lib64/libuahcore.so
 
 # OPLUS Project
-odm/bin/hw/vendor.oplus.hardware.stability.oplus_project-V1-service
-odm/etc/init/vendor.oplus.hardware.stability.oplus_project-V1-service.rc
-odm/etc/vintf/manifest/manifest_oplus_stability_project_aidl.xml
 odm/lib64/vendor.oplus.hardware.stability.oplus_project-V2-ndk.so
+vendor/apex/vendor.oplus.hardware.stability.aidl.apex
 vendor/lib64/vendor.oplus.hardware.stability.oplus_project-V1-ndk.so
 
 # PD
@@ -1271,7 +1224,8 @@ odm/etc/init/commcenterd.rc
 odm/etc/init/subsys_daemon.rc
 odm/etc/vintf/manifest/device_manifest_communication_center_aidl.xml
 odm/etc/QtiFtmPublicKey.pem
-odm/etc/oem_stx_platform_license.pfm
+vendor/etc/SNS_platform_license.pfm
+vendor/etc/SNS_platform_license_for_SM8635.pfm
 odm/etc/plugin_config.xml
 odm/lib64/lib-virtual-modem-protos.so
 odm/lib64/libcommcenterfw.so
@@ -1291,8 +1245,8 @@ odm/lib64/libsubsys-utils.so
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so
 odm/lib64/vendor.oplus.hardware.communicationcenter-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.communicationcenter-V2-ndk.so
-odm/lib64/vendor.oplus.hardware.subsys-V3-ndk.so
-odm/lib64/vendor.oplus.hardware.subsys_radio-V4-ndk.so
+odm/lib64/vendor.oplus.hardware.subsys-V4-ndk.so
+odm/lib64/vendor.oplus.hardware.subsys_radio-V7-ndk.so
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml
@@ -1509,10 +1463,6 @@ vendor/lib64/libnative-api.so
 vendor/lib64/libqcbor.so
 
 # Secure element
-odm/bin/hw/android.hardware.secure_element-service.qti
-odm/etc/init/android.hardware.secure_element-service.qti.rc
-odm/etc/vintf/manifest/secure_element_omapi_service.xml:vendor/etc/vintf/manifest/secure_element-service-omapi.xml
-vendor/etc/vintf/manifest/android.hardware.secure_element.xml
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPQeSE.so
 vendor/lib64/libesesbprovision.so
@@ -1732,6 +1682,12 @@ odm/bin/touchDaemon
 odm/etc/init/init.touchDaemon.rc
 odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc
 odm/etc/vintf/manifest/manifest_touch_aidl.xml
+odm/lib64/vendor.oplus.hardware.touch-V1-ndk.so;MODULE_SUFFIX=_odm
+odm/lib64/vendor.oplus.hardware.touch-V2-ndk.so;MODULE_SUFFIX=_odm
+odm/etc/permissions/vendor-oplus-hardware-touch-V1.xml
+system_ext/lib64/vendor.oplus.hardware.touch-V1-ndk.so;MODULE_SUFFIX=_system
+system_ext/lib64/vendor.oplus.hardware.touch-V2-cpp.so
+system_ext/lib64/vendor.oplus.hardware.touch-V2-ndk.so;MODULE_SUFFIX=_system
 
 # Video
 vendor/lib64/libstreamparser.so
