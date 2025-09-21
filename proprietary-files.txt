@@ -1466,6 +1466,9 @@ vendor/lib64/libnative-api.so
 vendor/lib64/libqcbor.so
 
 # Secure element
+vendor/etc/vintf/manifest/android.hardware.secure_element.xml
+vendor/lib64/android.hardware.secure_element-V1-ndk.so
+vendor/lib64/android.hardware.secure_element@1.0.so
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPQeSE.so
 vendor/lib64/libesesbprovision.so
