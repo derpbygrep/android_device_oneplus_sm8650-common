@@ -658,8 +658,8 @@ system/lib64/vendor.oplus.hardware.displaypanelfeature-V1-ndk.so:system_ext/lib6
 system_ext/bin/horae
 system_ext/etc/horae/horae.conf
 system_ext/etc/horae/horae_SM7675.conf
-system_ext/etc/horae/horae_SM8650.conf
 system_ext/etc/horae/horae_SM8635.conf
+system_ext/etc/horae/horae_SM8650.conf
 system_ext/etc/horae/horae_SM8650_CAIHONG.conf
 system_ext/etc/init/horae.rc
 system_ext/lib64/vendor.oplus.hardware.displaypanelfeature@1.0.so
@@ -783,18 +783,18 @@ vendor/bin/init.kernel.post_boot-cliffs.sh
 vendor/bin/init.kernel.post_boot-cliffs_2_2_1.sh
 vendor/bin/init.kernel.post_boot-cliffs_2_3_0.sh
 vendor/bin/init.kernel.post_boot-cliffs_3_3_1.sh
+vendor/bin/init.kernel.post_boot-cliffs_default_3_4_1.sh
 vendor/bin/init.kernel.post_boot-memory.sh
 vendor/bin/init.kernel.post_boot-pineapple.sh
 vendor/bin/init.kernel.post_boot-pineapple_2_3_1_1.sh
 vendor/bin/init.kernel.post_boot-pineapple_2_3_2_0.sh
-vendor/bin/init.qcom.class_core.sh
-vendor/etc/init/hw/init.qti.kernel.rc
 vendor/bin/init.kernel.post_boot-pineapple_default_2_3_2_1.sh
-vendor/bin/init.kernel.post_boot-cliffs_default_3_4_1.sh
 vendor/bin/init.kernel.post_boot.sh
+vendor/bin/init.qcom.class_core.sh
 vendor/bin/init.qti.kernel.sh
 vendor/bin/system_dlkm_modprobe.sh
 vendor/bin/vendor_modprobe.sh
+vendor/etc/init/hw/init.qti.kernel.rc
 
 # Keymaster
 vendor/bin/hw/android.hardware.security.keymint-service-qti
@@ -1224,8 +1224,6 @@ odm/etc/init/commcenterd.rc
 odm/etc/init/subsys_daemon.rc
 odm/etc/vintf/manifest/device_manifest_communication_center_aidl.xml
 odm/etc/QtiFtmPublicKey.pem
-vendor/etc/SNS_platform_license.pfm
-vendor/etc/SNS_platform_license_for_SM8635.pfm
 odm/etc/plugin_config.xml
 odm/lib64/lib-virtual-modem-protos.so
 odm/lib64/libcommcenterfw.so
@@ -1303,6 +1301,8 @@ vendor/etc/O_STX_platform_license.pfm
 vendor/etc/O_TDD-Bypass_platform_license.pfm
 vendor/etc/SDA_platform_license.pfm
 vendor/etc/SNS_platform_license.pfm
+vendor/etc/SNS_platform_license.pfm
+vendor/etc/SNS_platform_license_for_SM8635.pfm
 vendor/etc/telephony_packages.xml
 vendor/lib64/deviceInfoServiceModuleNr.so
 vendor/lib64/libQtiRilLoadable.so
@@ -1681,13 +1681,10 @@ odm/bin/hw/vendor-oplus-hardware-touch-V2-service
 odm/bin/touchDaemon
 odm/etc/init/init.touchDaemon.rc
 odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc
+odm/etc/permissions/vendor-oplus-hardware-touch-V1.xml
 odm/etc/vintf/manifest/manifest_touch_aidl.xml
 odm/lib64/vendor.oplus.hardware.touch-V1-ndk.so;MODULE_SUFFIX=_odm
 odm/lib64/vendor.oplus.hardware.touch-V2-ndk.so;MODULE_SUFFIX=_odm
-odm/etc/permissions/vendor-oplus-hardware-touch-V1.xml
-system_ext/lib64/vendor.oplus.hardware.touch-V1-ndk.so;MODULE_SUFFIX=_system
-system_ext/lib64/vendor.oplus.hardware.touch-V2-cpp.so
-system_ext/lib64/vendor.oplus.hardware.touch-V2-ndk.so;MODULE_SUFFIX=_system
 
 # Video
 vendor/lib64/libstreamparser.so
