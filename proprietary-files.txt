@@ -498,6 +498,12 @@ vendor/lib64/libfastcvopt.so
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff
 odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc
 odm/etc/vintf/manifest/manifest_oplus_fingerprint_aidl_v3.xml
+odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so;MODULE_SUFFIX=_odm
+odm/lib64/android.hardware.biometrics.fingerprint-V1-ndk.so;MODULE_SUFFIX=_odm
+odm/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so;MODULE_SUFFIX=_odm
+odm/lib64/android.hardware.biometrics.fingerprint@2.1.so;MODULE_SUFFIX=_odm
+odm/lib64/android.hardware.biometrics.fingerprint@2.2.so;MODULE_SUFFIX=_odm
+odm/lib64/android.hardware.biometrics.fingerprint@2.3.so;MODULE_SUFFIX=_odm
 
 # Fingerprint Pay
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprintpay@1.0-service
