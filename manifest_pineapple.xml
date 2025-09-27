@@ -46,6 +46,14 @@
         <instance>eSE1</instance>
       </interface>
     </hal>
+    <hal format="aidl">
+        <name>vendor.oplus.hardware.touch</name>
+        <version>2</version>
+         <interface>
+            <name>IOplusTouch</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl">
         <name>com.dsi.ant</name>
         <transport>hwbinder</transport>

@@ -1682,7 +1682,6 @@ odm/bin/touchDaemon
 odm/etc/init/init.touchDaemon.rc
 odm/etc/init/vendor-oplus-hardware-touch-V2-service.rc
 odm/etc/permissions/vendor-oplus-hardware-touch-V1.xml
-odm/etc/vintf/manifest/manifest_touch_aidl.xml
 odm/lib64/vendor.oplus.hardware.touch-V1-ndk.so;MODULE_SUFFIX=_odm
 odm/lib64/vendor.oplus.hardware.touch-V2-ndk.so;MODULE_SUFFIX=_odm
 
