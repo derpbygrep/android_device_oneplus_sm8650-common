@@ -82,6 +82,9 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'odm/bin/hw/vendor-oplus-hardware-performance-V1-service': blob_fixup()
+        .add_needed('libbase_shim.so')
+        .add_needed('libprocessgroup_shim.so'),
     'vendor/lib64/libcwb_qcom_aidl.so': blob_fixup()
         .add_needed('libui_shim.so'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
