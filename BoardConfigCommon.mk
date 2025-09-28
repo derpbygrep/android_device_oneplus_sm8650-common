@@ -148,7 +148,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
 BOOT_SECURITY_PATCH := 2025-08-01
-VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
+VENDOR_SECURITY_PATCH := 2025-09-01
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
