@@ -32,9 +32,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
 
 # Alert slider
+ifneq ($(TARGET_HAS_NO_ALERT_SLIDER),true)
 PRODUCT_PACKAGES += \
     KeyHandler \
     tri-state-key-calibrate
+endif
 
 # Audio
 SOONG_CONFIG_NAMESPACES += android_hardware_audio
@@ -92,8 +94,6 @@ PRODUCT_COPY_FILES += \
     $(AUDIO_PAL_DIR)/configs/pineapple/Hapticsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/Hapticsconfig.xml \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_pineapple/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    $(LOCAL_PATH)/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
@@ -338,7 +338,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
 # Lindroid
-TARGET_BUILD_LINDROID := true
+# TARGET_BUILD_LINDROID := true --- skip for now till we have kernel support
 
 # Logging
 SPAMMY_LOG_TAGS := \
@@ -412,13 +412,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
-# OpenDelta
-ifeq ($(TARGET_BUILD_GAPPS),true)
-    PRODUCT_PACKAGES += op8650OpenDeltaOverlay
-else
-    PRODUCT_PACKAGES += op8650OpenDeltaOverlayVanilla
-endif
-
 # OPlus dummy services
 PRODUCT_PACKAGES += \
     vendor.oplus.hardware.osense.client-service \
@@ -451,17 +444,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
     libqti-perfd-client
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
 # PowerShare
 PRODUCT_PACKAGES += \
     vendor.lineage.powershare-service.default
-
-$(call soong_config_set,lineage_powershare,powershare_path,/proc/wireless/enable_tx)
-# Protobuf
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full-3.9.1-vendorcompat
 
 # QCOM
 TARGET_BOARD_PLATFORM := pineapple
@@ -496,11 +481,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.voice-V2-ndk.vendor \
     librmnetctl
 
-# The default value of this variable is false and should only be set to true when
-# the device allows users to retain eSIM profiles after factory reset of user data.
-PRODUCT_PRODUCT_PROPERTIES += \
-    masterclear.allow_retain_esim_profiles_after_fdr=true
-
 # QSPA
 PRODUCT_PACKAGES += \
     vendor.qti.qspa-service
@@ -534,12 +514,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
 # Sensors (wake)
-$(call soong_config_set,oplus_sensors,uses_tap_sensor,true)
-$(call soong_config_set,oplus_sensors,uses_double_tap_sensor,true)
-
-# Shipping API
-BOARD_SHIPPING_API_LEVEL := 34
-PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+# $(call soong_config_set,oplus_sensors,uses_tap_sensor,true) # skip for now until kernel support
+# $(call soong_config_set,oplus_sensors,uses_double_tap_sensor,true)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -561,32 +537,8 @@ PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
 
 # Telephony
-PRODUCT_PACKAGES += \
-    OplusEuicc \
-    extphonelib \
-    extphonelib-product \
-    extphonelib.xml \
-    extphonelib_product.xml \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti-telephony-hidl-wrapper-prd \
-    qti_telephony_hidl_wrapper.xml \
-    qti_telephony_hidl_wrapper_prd.xml \
-    qti-telephony-utils \
-    qti-telephony-utils-prd \
-    qti_telephony_utils.xml \
-    qti_telephony_utils_prd.xml \
-    telephony-ext
-
-ifneq ($(TARGET_BUILD_GAPPS),true)
-PRODUCT_PACKAGES += \
-    OpenEUICC
-endif
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
-    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml \
@@ -652,14 +604,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
-
-$(call soong_config_set,qti_vibrator,use_effect_stream,true)
-$(call soong_config_set,qti_vibrator,use_effect_stream_strength,true)
-$(call soong_config_set,qti_vibrator,use_primitive_effect_stream,true)
-$(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.oplus_sm8650-richtap)
-
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
@@ -687,9 +631,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
-    firmware_wlanmdsp.otaupdate_symlink \
-    firmware_wlan_mac.bin_symlink \
-    firmware_WCNSS_qcom_cfg.ini_symlink
+    firmware_wlanmdsp.otaupdate_symlink
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8650-common/sm8650-common-vendor.mk)

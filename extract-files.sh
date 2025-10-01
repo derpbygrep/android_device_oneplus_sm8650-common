@@ -74,17 +74,9 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             grep -q "libshims_aidl_fingerprint_v3.oplus.so" "${2}" || "${PATCHELF}" --add-needed "libshims_aidl_fingerprint_v3.oplus.so" "${2}"
             ;;
-        odm/etc/camera/CameraHWConfiguration.config)
-            [ "$2" = "" ] && return 0
-            sed -i "/SystemCamera = / s/1;/0;/g" "${2}"
-            ;;
         odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc)
             [ "$2" = "" ] && return 0
             sed -i "8i\    task_profiles ProcessCapacityHigh MaxPerformance" "${2}"
-            ;;
-        odm/etc/permissions/vendor-oplus-hardware-charger.xml)
-            [ "$2" = "" ] && return 0
-            sed -i "s|/system/system_ext|/system_ext|g" "${2}"
             ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy)
             [ "$2" = "" ] && return 0
@@ -95,19 +87,6 @@ function blob_fixup() {
             grep -q "sched_get_priority_min: 1" "${2}" || echo -e "\nsched_get_priority_min: 1" >> "${2}"
             grep -q "sched_get_priority_max: 1" "${2}" || echo -e "\nsched_get_priority_max: 1" >> "${2}"
             ;;
-        odm/lib64/libAlgoProcess.so)
-            [ "$2" = "" ] && return 0
-            sed -i "s/android.hardware.graphics.common-V3-ndk.so/android.hardware.graphics.common-V6-ndk.so/" "${2}"
-            sed -i "s/android.hardware.graphics.common-V4-ndk.so/android.hardware.graphics.common-V6-ndk.so/" "${2}"
-            ;;
-        odm/lib64/libCOppLceTonemapAPI.so|odm/lib64/libCS.so|odm/lib64/libSuperRaw.so|odm/lib64/libYTCommon.so|odm/lib64/libyuv2.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF_0_17_2}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
-            ;;
-        odm/lib64/vendor.oplus.hardware.virtual_device.camera.manager@1.0-impl.so|vendor/lib64/libcwb_qcom_aidl.so)
-            [ "$2" = "" ] && return 0
-            grep -q "libui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
-            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             [ "$2" = "" ] && return 0
             sed -i "s/\/my_product/\/product/" "${2}"
@@ -116,19 +95,6 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "/zram or zsmalloc/d" "${2}"
             sed -i "s/-e \"zram\" -e \"zsmalloc\"//g" "${2}"
-            ;;
-        vendor/etc/init/vendor.qti.camera.provider-service_64.rc)
-            sed -i "6i\    setenv JE_MALLOC_ZERO_FILLING 1" "${2}"
-            [ "$2" = "" ] && return 0
-            ;;
-        vendor/etc/libnfc-nci.conf)
-            [ "$2" = "" ] && return 0
-            sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
-            ;;
-        vendor/etc/libnfc-nxp.conf)
-            [ "$2" = "" ] && return 0
-            sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
-            sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
             ;;
         vendor/etc/media_codecs_pineapple.xml|vendor/etc/media_codecs_pineapple_vendor.xml)
             [ "$2" = "" ] && return 0
