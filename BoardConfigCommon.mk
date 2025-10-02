@@ -103,26 +103,6 @@ ODM_MANIFEST_FILES := \
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 
-# Kernel
-TARGET_FORCE_PREBUILT_KERNEL := true
-KERNEL_LTO := none
-
-BOARD_BOOTCONFIG := \
-    androidboot.hardware=qcom \
-    androidboot.memcg=1 \
-    androidboot.vendor.qspa=true \
-    androidboot.usbcontroller=a600000.dwc3 \
-    androidboot.console=0
-
-TARGET_KERNEL_CLANG_VERSION := r547379
-
-BOARD_USES_GENERIC_KERNEL_IMAGE := true
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image
-
-TARGET_KERNEL_SOURCE := kernel/oneplus/sm8650
-
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/oplus_chg/battery/mmi_charging_enable
 
